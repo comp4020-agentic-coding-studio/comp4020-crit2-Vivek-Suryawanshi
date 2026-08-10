@@ -34,10 +34,13 @@ describe("crit-2: links to the real organisation", () => {
         .map((a) => a.getAttribute("href") ?? "")
         .filter(isExternal),
     );
+    const linksToOrg = externalLinks.some((href) =>
+      /canberrarefugee\.org\.au/i.test(href),
+    );
     expect(
-      externalLinks.length,
-      "no <a href=\"https://...\"> found — the spec asks for a link to the real organisation's own site",
-    ).toBeGreaterThan(0);
+      linksToOrg,
+      "no link to canberrarefugee.org.au — the spec asks for a link to the real organisation's own site",
+    ).toBe(true);
   });
 });
 
