@@ -161,3 +161,71 @@ catching you out, a fact about the stack the agent keeps getting wrong --- write
 it down here. Growing this file is the work of harness engineering, and the gap
 between this boilerplate and your own version is part of what your prototype
 says about the developer you're becoming.
+
+## This prototype: Canberra Refugee Support
+
+I'm redesigning https://canberrarefugee.org.au for this week's brief. CRS is a
+Canberra not-for-profit that matches volunteers with refugees and asylum
+seekers. This is a studio exercise, not their real site, and it shouldn't
+pretend to be.
+
+### Where the facts come from
+
+I collected the facts myself from the CRS site and put them in
+`docs/crs-facts.md`. Use only that file. Don't search the web for CRS details
+and don't fill gaps from memory — I found three directory sites with wrong
+details, and the fact sheet lists them.
+
+If you need a fact that isn't in the sheet, tell me instead of guessing. In
+particular:
+
+- CRS doesn't publish a phone number. Don't add a `tel:` link.
+- They have no office, so there's no street address. Postal only: PO Box 3442,
+  Weston Creek ACT 2611.
+- `info@canberrarefugee.org.au` is the only email address.
+- People can't refer themselves. The process on their site is for someone else
+  making a referral, so don't write copy telling a refugee to contact CRS
+  directly.
+- Don't imply CRS gives money to people who aren't registered with them.
+
+Write everything in your own words. Don't copy CRS's sentences — the spec asks
+for their information rewritten, not pasted.
+
+### What I'm trying to fix
+
+Their site is organised around what CRS does. Mine is organised around who's
+visiting and what they came for. Their menu has ten items; mine has three.
+
+### Pages
+
+- `index.html` — what CRS is in a short paragraph, three links out to the
+  pages below, contact details you can see without clicking anything.
+- `about.html` — how the good neighbour model works, the Education Awards,
+  who they partner with.
+- `volunteer.html` — volunteering and membership together, as one numbered
+  path: join, orientation, WWVP card, get matched. Their site splits these
+  into two menu items even though joining is step one of volunteering.
+- `refer.html` — for someone referring another person to CRS.
+
+There's no donate page. It's a link to CRS's own donation page in the header
+and footer. Taking payments needs a backend and this week is static, so a page
+that looks like it takes donations but doesn't would be worse than not having
+one.
+
+Every page links to https://canberrarefugee.org.au and repeats the contact
+details in the footer.
+
+### What I'm leaving out
+
+Just what CRS does and how to reach them. Their news page links to opinion
+pieces about immigration policy — I'm not carrying that across.
+
+### Rules for the build
+
+- It gets marked at 1920x1080 and 390x844 and both count fully, so start at
+  390px and work up.
+- Keep JavaScript to what a page actually needs. No frameworks.
+- Semantic HTML — a real `<address>`, headings in order, a real `<nav>`.
+- Never put text inside an image. That's the worst thing about their site.
+- Every image needs alt text that says something.
+- Don't use their logo or photos, and don't copy their colours.
