@@ -100,6 +100,9 @@ small volunteer team.
 - Email: info@canberrarefugee.org.au — the single channel for referrals,
   volunteering, WWVP and general enquiries.
 - Postal: PO Box 3442, Weston Creek ACT 2611, Australia
+- Donations: https://canberrarefugee.org.au/donate/ — their own donation
+  page, checked 11 August 2026. This site links out to it and does not
+  take payments.
 - Facebook, YouTube and Instagram accounts linked from their site.
 - NO phone number is published anywhere on their own site. Do not invent one.
 - NO street address. They have no office, so this is correct, not an omission.
