@@ -7,45 +7,73 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Canberra Refugee Support</h1>
-      <p>
-        Canberra Refugee Support (CRS) is a Canberra not-for-profit run
-        entirely by volunteers. It matches small teams of volunteers with
-        asylum seekers and refugees who are registered with the
-        organisation, offering longer-term, practical support &mdash;
-        things like housing, furniture, English language training and
-        finding services people are already entitled to.
-      </p>
+    <header class="site-header">
+      <div class="site-identity">
+        <span class="brand-mark">CRS</span>
+        <span class="brand-full">Canberra Refugee Support</span>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="refer.html">Refer someone</a></li>
+          <li>
+            <a class="nav-donate" href="https://canberrarefugee.org.au/donate/">
+              Donate <span aria-hidden="true">↗</span
+              ><span class="visually-hidden"> (external link)</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="about.html">About us</a></li>
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="refer.html">Refer someone</a></li>
-      </ul>
-    </nav>
     <main>
+      <section class="hero">
+        <h1>Canberra Refugee Support</h1>
+        <p>
+          Canberra Refugee Support (CRS) is a Canberra not-for-profit run
+          entirely by volunteers. It matches small teams of volunteers with
+          asylum seekers and refugees who are registered with the
+          organisation, offering longer-term, practical support &mdash;
+          things like housing, furniture, English language training and
+          finding services people are already entitled to.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="volunteer.html"
+            >Become a volunteer</a
+          >
+          <a class="btn btn-secondary" href="refer.html">Refer someone</a>
+        </div>
+        <p class="hero-quiet">
+          <a href="about.html">Learn how CRS works →</a>
+        </p>
+      </section>
       <section aria-label="Three ways in">
         <article>
-          <h2><a href="about.html">About us</a></h2>
+          <h2><a href="about.html">I want to understand CRS</a></h2>
           <p>
-            For anyone who wants to understand CRS's good neighbour model
-            and who they work with.
+            How the good neighbour model works, and who CRS partners with.
           </p>
         </article>
         <article>
-          <h2><a href="volunteer.html">Volunteer</a></h2>
-          <p>For anyone considering becoming a CRS volunteer.</p>
+          <h2><a href="volunteer.html">I want to help</a></h2>
+          <p>Join, get oriented, and get matched with a family or individual.</p>
         </article>
         <article>
-          <h2><a href="refer.html">Refer someone</a></h2>
+          <h2><a href="refer.html">Someone needs support</a></h2>
           <p>
-            For someone who knows a refugee or asylum seeker and wants to
-            refer them to CRS.
+            Refer a refugee or asylum seeker you know &mdash; not for
+            self-referral.
           </p>
         </article>
+      </section>
+      <section aria-label="How support happens" class="neighbour-line">
+        <ol>
+          <li><span>New to Canberra</span></li>
+          <li><span>Meet CRS</span></li>
+          <li><span>Meet local volunteers</span></li>
+          <li><span>Practical support</span></li>
+        </ol>
       </section>
     </main>
     <footer>
@@ -61,6 +89,12 @@
         ><br />
         Post: PO Box 3442, Weston Creek ACT 2611, Australia
       </address>
+      <p class="footer-donate">
+        <a href="https://canberrarefugee.org.au/donate/">
+          Donate <span aria-hidden="true">↗</span
+          ><span class="visually-hidden"> (external link)</span>
+        </a>
+      </p>
     </footer>
   </body>
 </html>

@@ -7,23 +7,33 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
+    <header class="site-header">
+      <div class="site-identity">
+        <span class="brand-mark">CRS</span>
+        <span class="brand-full">Canberra Refugee Support</span>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="refer.html" aria-current="page">Refer someone</a></li>
+          <li>
+            <a class="nav-donate" href="https://canberrarefugee.org.au/donate/">
+              Donate <span aria-hidden="true">↗</span
+              ><span class="visually-hidden"> (external link)</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
       <h1>Refer someone to CRS</h1>
       <p>
         This page is for referring a refugee or asylum seeker you know to
         Canberra Refugee Support &mdash; the process below is for someone
         making a referral on another person's behalf.
       </p>
-    </header>
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About us</a></li>
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="refer.html" aria-current="page">Refer someone</a></li>
-      </ul>
-    </nav>
-    <main>
       <section>
         <h2>Who CRS prioritises</h2>
         <p>
@@ -78,6 +88,12 @@
         ><br />
         Post: PO Box 3442, Weston Creek ACT 2611, Australia
       </address>
+      <p class="footer-donate">
+        <a href="https://canberrarefugee.org.au/donate/">
+          Donate <span aria-hidden="true">↗</span
+          ><span class="visually-hidden"> (external link)</span>
+        </a>
+      </p>
     </footer>
   </body>
 </html>
