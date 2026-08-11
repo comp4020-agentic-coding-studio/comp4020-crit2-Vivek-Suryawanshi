@@ -1,85 +1,67 @@
 # Process overview
 
-<!-- TEMPLATE: this file is a shape to fill in, not a form. Replace everything
-     in it with your own overview, and delete this comment — `pnpm
-     check:evidence` will remind you if it's still here. -->
-
-A reading-guide to how the work came together --- a map to your process, not an
-essay about it. Markers read this file and follow its citations; they don't
-trawl the repo for evidence you didn't point at, so if a moment mattered, cite
-it.
-
-This file is the shape; the course site's
-[assessment page](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/topics/assessment/#what-you-submit)
-is the requirement, and its
-[word counts](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/topics/assessment/#word-counts)
-cover every deliverable.
-
 ## What I built
 
-One paragraph: the thing, and the idea behind it.
+A redesign of [canberrarefugee.org.au](https://canberrarefugee.org.au) —
+four static pages for Canberra Refugee Support, a Canberra not-for-profit
+run entirely by volunteers.
+
+Their site isn't ugly, which made this harder than I expected. The problem
+is that it has ten menu items and three different places to read stories
+about the families they help, and nowhere on the homepage tells you how to
+contact them. It's built for people who already know CRS. Mine is built for
+someone showing up for the first time — three doors instead of ten links:
+volunteer, donate, or refer someone you know.
+
+I stayed on the plain HTML/CSS/Vite setup the starter comes with. Astro is
+the course default now, but I only had four pages sharing one header, and
+the CLAUDE.md warns that Astro's base path is easy to get wrong on GitHub
+Pages — it looks fine locally and every asset 404s on the live site. Not
+worth it for the one thing it would have saved me.
 
 ## The moments that mattered
 
-Three or four for an assignment; fewer is fine for a weekly prototype. Keep the
-list short so each moment has room to do all four jobs:
+**I wrote down the facts before I wrote any prompts.**
+[`0a202f8`](../../commit/0a202f8) is a fact sheet I put together by reading
+CRS's own pages. While I was checking things I found three other sites with
+wrong details about them — one had the wrong PO Box, one had an old email
+address, one linked to a domain they don't use anymore. I wrote down each
+one and why I ignored it. After that, every prompt told the agent to use
+only that file. It never made anything up, including a phone number, which
+CRS doesn't publish anywhere.
 
-1. **what happened** --- the problem, or the thing the agent got wrong
-2. **what you did instead of the obvious thing** --- the call you made, and why
-   it beat the obvious one
-3. **how you knew it was right** --- the check you ran, the viewport you looked
-   at, what you read before accepting the diff
-4. **the citation** --- a commit or commit range, a `CLAUDE.md` change, a check
-   that went from red to green, a prompt paired with the commit it produced
+**The test the agent wrote would have passed on the wrong thing.**
+It turned the spec into tests ([`ea0cd01`](../../commit/ea0cd01)), and the
+one for "links to the real organisation" just checked that some external
+link existed somewhere. My volunteer page links to Access Canberra for the
+WWVP card, so that alone would have made it green without ever linking to
+CRS. I changed it to check for their actual domain
+([`ea0cd01...5ca97f7`](../../compare/ea0cd01...5ca97f7)).
 
-Jobs 2 and 3 are the ones the repo can't tell a reader on its own, so they're
-where the marks are. The strongest moments are the ones where a correction
-landed in the **harness** rather than in another prompt --- a rule added to
-`CLAUDE.md`, a check wired up, an attempt thrown away: re-prompting until it
-passes is the routine case, and changing what the agent works against is the
-skilled one.
+**Putting rules in CLAUDE.md worked better than repeating myself.**
+[`84e79fd`](../../commit/84e79fd) is where I wrote down the things it
+couldn't work out on its own: no phone number, no street address, and don't
+write the referral page as if the reader is the person who needs help,
+because CRS's process is for someone else referring them. When it built the
+first page it listed where every fact came from, and it spotted the PO Box
+conflict without me asking.
 
-Cite each moment as a link whose text is the commit hash or range and whose
-target is this repo's commit or compare URL, so a reader clicks straight to the
-evidence:
+**Opening the page found things reading the code didn't.**
+The first homepage put the menu above the organisation's name, and stuck
+"this is a student project" in the middle of the opening paragraph
+([`24e9b7e`](../../commit/24e9b7e)). Later I noticed none of the four pages
+had a link back to the homepage — you could click in and never get out
+([`46710a4`](../../commit/46710a4)). Both looked fine in the diff.
 
-- one commit: [`a1b2c3d`](https://github.com/YOUR-ORG/YOUR-REPO/commit/a1b2c3d)
-- a range:
-  [`a1b2c3d...e4f5a6b`](https://github.com/YOUR-ORG/YOUR-REPO/compare/a1b2c3d...e4f5a6b)
+**I deleted a test instead of making it pass.**
+`spec/starter.test.ts` was checking for the template's
+`data-testid="intro"`. I could have put the attribute back and gone green,
+but the failure message says not to, and it would have meant nothing. So I
+deleted it ([`4d37b79`](../../commit/4d37b79)).
 
-To pair a prompt with the commit it produced, quote the prompt (curated, not a
-full transcript) next to the citation:
-
-> the prompt, verbatim
-
-Screenshots are welcome where one carries the verification better than a
-sentence does. Commit the file to this repo and link it with a **relative**
-path, which is what makes it render on GitHub: `![alt text](docs/before.png)`.
-Images don't count towards the word count and don't replace the citation.
-
-### A worked moment, for shape
-
-Delete this section along with the rest of the boilerplate --- it's here to show
-the four jobs in one paragraph, not to be imitated in content.
-
-> The date formatter kept coming back with `toLocaleDateString()` and no locale
-> argument, so the same build rendered differently on my machine and in CI. I'd
-> already re-prompted it twice, which fixed the line but not the habit, so the
-> third time I put the rule in `CLAUDE.md` instead
-> ([`3f9ac21`](https://github.com/YOUR-ORG/YOUR-REPO/commit/3f9ac21)) and added
-> a spec test that fails on a bare `toLocaleDateString`. That's what told me it
-> had actually taken: the test went red against the old code and green against
-> the new, and the next two features it wrote passed it without prompting
-> ([`3f9ac21...b7e0d14`](https://github.com/YOUR-ORG/YOUR-REPO/compare/3f9ac21...b7e0d14)).
-
-## Before you ship
-
-`pnpm check:evidence` verifies your citations resolve to real commits, that the
-current reflection entry is in `reflections/`, and that your `CLAUDE.md` is
-there --- before a marker ever opens the file. It checks that your map is
-traceable, not that it is good: the marker judges whether your small,
-deliberately chosen set of moments shows real judgement and reflection. A green
-check is not a substitute for that curation.
-
-Images are deliberately not checked, because whether one renders is visible the
-moment you look. Open this file on GitHub and look at it before you ship.
+**Two times I told it no.** It wanted to start a background server to look
+at its own work — I already had one running, so I pointed it at
+`agent-browser` instead. And when I asked it to put my real commit hashes
+into the PROCESS.md template example, it pushed back: that example is about
+a bug that never happened here, and real hashes would have made a made-up
+story pass `check:evidence`. It was right.
