@@ -13,6 +13,10 @@ contact them. It's built for people who already know CRS. Mine is built for
 someone showing up for the first time — three doors instead of ten links:
 volunteer, donate, or refer someone you know.
 
+The visual identity is built around CRS's own "good neighbour" model —
+people already in Canberra helping people new to Canberra — with a repeated
+step-line motif tying the volunteer path and the referral process together.
+
 I stayed on the plain HTML/CSS/Vite setup the starter comes with. Astro is
 the course default now, but I only had four pages sharing one header, and
 the CLAUDE.md warns that Astro's base path is easy to get wrong on GitHub
@@ -65,3 +69,22 @@ at its own work — I already had one running, so I pointed it at
 into the PROCESS.md template example, it pushed back: that example is about
 a bug that never happened here, and real hashes would have made a made-up
 story pass `check:evidence`. It was right.
+
+**The agent caught an invented fact before I did.**
+I asked for a "neighbour line" motif with five stages, the last being
+"greater independence." It read the fact sheet, told me that phrase wasn't
+in there and was closer to an inference than a rewritten fact, and asked
+what I wanted to do. I cut the stage rather than reword it
+([`00ce4b0`](../../commit/00ce4b0)).
+
+**A static site shouldn't claim a role is currently open.**
+The volunteer page listed the Fundraising Coordinator vacancy as current.
+That's true today and may not be next week, so it now points to CRS's own
+site for whatever they need help with
+([`56acae5`](../../commit/56acae5)).
+
+**The same bug three times.**
+A 68ch max-width meant for prose kept leaking onto things that aren't
+prose — the site header, then the page container, then the neighbour line —
+each sitting in a narrow column while everything else spanned the page
+([`e3ac534`](../../commit/e3ac534)).
