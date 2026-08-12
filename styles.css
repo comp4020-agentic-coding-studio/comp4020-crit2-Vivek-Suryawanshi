@@ -335,12 +335,13 @@ main section[aria-label="Three ways in"] h2 a:hover {
   font-weight: 600;
 }
 
-/* Volunteer page: the four-step journey, same marker-and-line language as
-   the homepage's neighbour line, but numbered (this is an ordered process)
-   and vertical at every width, since the steps are full sentences rather
-   than short labels that could sit side by side */
+/* Numbered stage marker, shared by the volunteer journey and the referral
+   stages: same marker-and-line language as the homepage's neighbour line,
+   but numbered (both are ordered processes) and vertical at every width,
+   since each stage is full sentences rather than short labels that could
+   sit side by side */
 
-.volunteer-line {
+.step-line {
   counter-reset: step;
   list-style: none;
   display: flex;
@@ -350,13 +351,13 @@ main section[aria-label="Three ways in"] h2 a:hover {
   padding: 0;
 }
 
-.volunteer-line li {
+.step-line > li {
   counter-increment: step;
   position: relative;
   padding-inline-start: 2.5rem;
 }
 
-.volunteer-line li::before {
+.step-line > li::before {
   content: counter(step);
   position: absolute;
   left: 0;
@@ -372,7 +373,7 @@ main section[aria-label="Three ways in"] h2 a:hover {
   text-align: center;
 }
 
-.volunteer-line li:not(:last-child)::after {
+.step-line > li:not(:last-child)::after {
   content: "";
   position: absolute;
   left: 0.875rem;
