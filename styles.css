@@ -335,6 +335,53 @@ main section[aria-label="Three ways in"] h2 a:hover {
   font-weight: 600;
 }
 
+/* Volunteer page: the four-step journey, same marker-and-line language as
+   the homepage's neighbour line, but numbered (this is an ordered process)
+   and vertical at every width, since the steps are full sentences rather
+   than short labels that could sit side by side */
+
+.volunteer-line {
+  counter-reset: step;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.volunteer-line li {
+  counter-increment: step;
+  position: relative;
+  padding-inline-start: 2.5rem;
+}
+
+.volunteer-line li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--accent-tint);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.75rem;
+  text-align: center;
+}
+
+.volunteer-line li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0.875rem;
+  top: 1.75rem;
+  width: 2px;
+  height: calc(100% - 0.25rem);
+  background: var(--border);
+}
+
 @media (width >= 40rem) {
   body {
     font-size: 1.0625rem;
